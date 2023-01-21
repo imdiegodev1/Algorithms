@@ -1,27 +1,27 @@
 import random
 import time
 
-def busqueda_lineal(lista, objetivo, iteraciones=0):
+def lineal_search(my_list, target, iterations=0):
     match = False
 
-    for elemento in lista:
-        iteraciones += 1
-        if elemento == objetivo:
+    for element in my_list:
+        iterations += 1
+        if element == target:
             match = True
             break
-    return (match, iteraciones)
+    return (match, iterations)
 
 
 if __name__ == '__main__':
-    tamano_de_lista = int(input('De que tamaño sera la lista? '))
-    objetivo = int(input('Que numero quieres encontrar? '))
+    list_size = int(input('How big will the list be? '))
+    target = int(input('What number do you want to find? '))
 
     start = time.time()
-    lista = [random.randint(0, 100) for i in range(tamano_de_lista)]
+    my_list = [random.randint(0, 100) for i in range(list_size)]
 
-    (encontrado, iteraciones) = busqueda_lineal(lista, objetivo)
-    print(lista)
-    print(f'El elemento {objetivo} {"esta" if encontrado else "no esta"} en la lista')
+    (found, iterations) = lineal_search(my_list, target)
+    print(my_list)
+    print(f'The {target} {"is" if found else "is not"} in the list')
     end = time.time()
-    print(f'este algoritmo busqueda lineal toma un tiempo de ejecucion de {round(end - start, 3)}')
-    print (f'el numero de iteraciones realizadas en la busqueda fue de {iteraciones}')
+    print(f'this linear search algorithm takes an execution time of {round(end - start, 3)}')
+    print (f'the number of iterations performed in the search was of {iterations}')

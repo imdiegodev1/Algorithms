@@ -27,7 +27,7 @@ if __name__ == '__main__':
 
     (found, iterations) = binary_search(my_list, 0, len(my_list), target)
     print(my_list)
-    print(f'The {target} {"this" if found else "not this"} element in the list')
+    print(f'The {target} {"is" if found else "is not"} in the list')
     end = time.time()
     print(f'This binary search algorithm takes an execution time of {round(end - start, 3)}')
     print (f'The number of iterations performed in the search was of {iterations}')
