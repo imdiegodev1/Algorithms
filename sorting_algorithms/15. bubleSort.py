@@ -1,26 +1,26 @@
 import random
 import time
 
-def ordenamiento_de_burbuja(lista):
-    n = len(lista)
+def bubble_sort(my_list):
+    n = len(my_list)
     for i in range(n):
         for j in range(0, n - i - 1):
 
-            if lista[j] > lista[j+1]:
-                lista[j], lista[j + 1] = lista[j + 1], lista[j]
-    return lista
+            if my_list[j] > my_list[j+1]:
+                my_list[j], my_list[j + 1] = my_list[j + 1], my_list[j]
+    return my_list
 
 
 if __name__ == '__main__':
     
-    tamano_de_lista = int(input('De que tamaño sera la lista? '))
+    list_size = int(input('How big will the list be? '))
 
     start = time.time()
-    lista = [random.randint(0, 100) for i in range(tamano_de_lista)]
+    lista = [random.randint(0, 100) for i in range(list_size)]
     print(lista)
 
-    lista_ordenada = ordenamiento_de_burbuja(lista)
-    print(lista_ordenada)
+    sorted_list = bubble_sort(lista)
+    print(sorted_list)
     end = time.time()
-    print(f'este algoritmo de ordenaciòn toma un tiempo de ejecucion de {round(end - start, 3)}')
+    print(f'this sorting algorithm takes an execution time of {round(end - start, 3)}')
     

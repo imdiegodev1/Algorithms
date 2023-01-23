@@ -1,62 +1,63 @@
 import random
 import time
 
-def ordenamiento_por_mezcla (lista):
+def sort_by_mix (my_lista):
 
-    if len(lista) > 1:
-        medio = len(lista) // 2
-        izquierda = lista [:medio]
-        derecha = lista [medio:]
+    if len(my_lista) > 1:
+        mid = len(my_lista) // 2
+        left = my_lista [:mid]
+        right = my_lista [mid:]
 
-        print (izquierda, '*'*5, derecha)
+        print (left, '*'*5, right)
 
-        ##llamada recursiva en cada mitad
-        ordenamiento_por_mezcla(izquierda)
-        ordenamiento_por_mezcla(derecha)
+        ##recursive call in each half
+        sort_by_mix(left)
+        sort_by_mix(right)
 
-        ##iteradores para recorrer las dos sublistas
+        ##iterators to go through the two sublists
         i = 0
         j = 0
 
-        ##Iterador para la lista principal
+        ##Iterator for the main list
         k = 0
 
-        while i < len(izquierda) and j < len(derecha):
-            if izquierda[i] < derecha [j]:
-                lista[k] = izquierda[i]
+        while i < len(left) and j < len(right):
+            if left[i] < right [j]:
+                my_lista[k] = left[i]
                 i += 1
             else:
-                lista[k] = derecha[j]
+                my_lista[k] = right[j]
                 j += 1
             
             k += 1
 
-        while i < len(izquierda):
-            lista[k] = izquierda[i]
+        while i < len(left):
+            my_lista[k] = left[i]
             i += 1
             k += 1
         
-        while j < len(derecha):
-            lista[k] = derecha[j]
+        while j < len(right):
+            my_lista[k] = right[j]
             j += 1
             k += 1
         
-        print(f'izquierda {izquierda}, derecha {derecha}')
-        print(lista)
+        print(f'left {left}, right {right}')
+        print(my_lista)
         print('-'*5)
     
-    return lista
+    return my_lista
 
 if __name__ == '__main__':
-    tamano_lista = int(input('De que tamaño sela la liasta? '))
+
+    list_size = int(input('How big will the list be? '))
 
     start = time.time()
-    lista = [random.randint(0, 100) for i in range(tamano_lista)]
-    print(lista)
+    my_lista = [random.randint(0, 100) for i in range(list_size)]
+    print(my_lista)
     print('-'*20)
 
-    lista_ordenada = ordenamiento_por_mezcla(lista)
-    print(lista_ordenada)
+    sorted_list = sort_by_mix(my_lista)
+    print(sorted_list)
 
     end = time.time()
-    print(f'este algoritmo de ordenaciòn toma un tiempo de ejecucion de {round(end - start, 3)}')
+    print(f'this sorting algorithm takes an execution time of {round(end - start, 3)}')
